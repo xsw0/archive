@@ -1,11 +1,10 @@
-#include <iostream>
 #include <array>
+#include <iostream>
 #include <string>
 
 using namespace std;
 
-int main()
-{
+int main() {
     std::array<string, 51> S = {
         "0",
         "1",

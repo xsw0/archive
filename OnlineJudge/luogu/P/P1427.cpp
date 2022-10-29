@@ -3,17 +3,14 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     stack<int> s;
     int n;
-    while (cin >> n)
-    {
+    while (cin >> n) {
         s.push(n);
     }
     s.pop();
-    while (!s.empty())
-    {
+    while (!s.empty()) {
         cout << s.top() << " ";
         s.pop();
     }

@@ -2,17 +2,14 @@
 
 using namespace std;
 
-struct Edge
-{
+struct Edge {
     size_t x = 0;
     size_t y = 0;
     double value = 0;
-    Edge(size_t x, size_t y, double value)
-        : x{x}, y{y}, value{value} {}
+    Edge(size_t x, size_t y, double value) : x{x}, y{y}, value{value} {}
 };
 
-int main()
-{
+int main() {
     cin.tie(nullptr);
     cout.tie(nullptr);
     ios::sync_with_stdio(false);
@@ -20,13 +17,11 @@ int main()
     size_t n, m;
     cin >> n >> m;
 
-    auto cmp = [](const Edge &lhs, const Edge &rhs)
-    {
+    auto cmp = [](const Edge &lhs, const Edge &rhs) {
         return lhs.value < rhs.value;
     };
     vector<vector<Edge>> graph(n);
-    while (m--)
-    {
+    while (m--) {
         size_t x, y;
         double z;
         cin >> x >> y >> z;
@@ -42,22 +37,18 @@ int main()
 
     priority_queue<Edge, std::vector<Edge>, decltype(cmp)> edges(cmp);
 
-    for (auto &edge : graph[a])
-    {
+    for (auto &edge : graph[a]) {
         edges.push(edge);
     }
 
     vector<double> values(n);
     values[a] = 1;
-    while (values[b] == 0.0)
-    {
+    while (values[b] == 0.0) {
         auto top = edges.top();
         edges.pop();
-        if (values[top.y] == 0.0)
-        {
+        if (values[top.y] == 0.0) {
             values[top.y] = top.value;
-            for (auto &edge : graph[top.y])
-            {
+            for (auto &edge : graph[top.y]) {
                 edges.push(Edge{top.y, edge.y, top.value * edge.value});
             }
         }

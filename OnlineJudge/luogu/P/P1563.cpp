@@ -2,15 +2,13 @@
 
 using namespace std;
 
-struct Person
-{
+struct Person {
     bool a;
     string name;
     Person(){};
 };
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -19,13 +17,11 @@ int main()
     cin >> n >> m;
     vector<Person> people;
     people.resize(n);
-    for (size_t i = 0; i < n; i++)
-    {
+    for (size_t i = 0; i < n; i++) {
         cin >> people[i].a >> people[i].name;
     }
     size_t index = 0;
-    while (m--)
-    {
+    while (m--) {
         bool a;
         size_t s;
         cin >> a >> s;

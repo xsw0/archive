@@ -1,6 +1,5 @@
-cmake_minimum_required(VERSION 3.20)
-project(luogu)
+cmake_minimum_required(VERSION 3.20) project(luogu)
 
-set(CMAKE_CXX_STANDARD 14)
+    set(CMAKE_CXX_STANDARD 14)
 
-add_executable(luogu main.cpp)
+        add_executable(luogu main.cpp)

@@ -2,10 +2,8 @@
 
 using namespace std;
 
-string f(unsigned n)
-{
-    switch (n)
-    {
+string f(unsigned n) {
+    switch (n) {
     case 0:
         return "0";
     case 1:
@@ -15,10 +13,8 @@ string f(unsigned n)
     default: {
         string result;
         size_t i = 0;
-        while (n != 0)
-        {
-            if (n % 2 != 0)
-            {
+        while (n != 0) {
+            if (n % 2 != 0) {
                 string s = (i == 1) ? "+2" : "+2(" + f(i) + ")";
                 result += string{s.crbegin(), s.crend()};
             }
@@ -31,8 +27,7 @@ string f(unsigned n)
     }
 }
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);

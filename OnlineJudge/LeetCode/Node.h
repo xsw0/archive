@@ -5,16 +5,13 @@
 #ifndef LEETCODE_NODE_H
 #define LEETCODE_NODE_H
 
-
-class Node
-{
-public:
+class Node {
+  public:
     int val;
-    Node* next;
-    Node* random;
+    Node *next;
+    Node *random;
 
-    explicit Node(int val) : val{ val }, next{ nullptr }, random{ nullptr } {}
+    explicit Node(int val) : val{val}, next{nullptr}, random{nullptr} {}
 };
 
-
-#endif //LEETCODE_NODE_H
+#endif // LEETCODE_NODE_H

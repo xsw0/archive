@@ -2,8 +2,7 @@
 
 using namespace std;
 
-void add(string &s, size_t index, unsigned n)
-{
+void add(string &s, size_t index, unsigned n) {
     if (n == 0)
         return;
     if (s.size() <= index)
@@ -13,8 +12,7 @@ void add(string &s, size_t index, unsigned n)
     add(s, index + 1, sum / 10);
 }
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -28,10 +26,8 @@ int main()
     string c;
     c.reserve(a.size() + b.size());
 
-    for (size_t i = 0; i < a.size(); ++i)
-    {
-        for (size_t j = 0; j < b.size(); ++j)
-        {
+    for (size_t i = 0; i < a.size(); ++i) {
+        for (size_t j = 0; j < b.size(); ++j) {
             add(c, i + j, (a[i] - '0') * (b[j] - '0'));
         }
     }

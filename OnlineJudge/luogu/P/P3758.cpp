@@ -2,13 +2,11 @@
 
 using namespace std;
 
-struct Point
-{
+struct Point {
     vector<size_t> adjacent;
 };
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -18,8 +16,7 @@ int main()
     size_t n, m;
     cin >> n >> m;
     vector<Point> points(n);
-    while (m--)
-    {
+    while (m--) {
         size_t u, v;
         cin >> u >> v;
         --u, --v;
@@ -33,15 +30,12 @@ int main()
     count.front() = 1;
 
     size_t sum = 0;
-    for (size_t i = 0; i != t; ++i)
-    {
+    for (size_t i = 0; i != t; ++i) {
         auto x = count;
-        for (size_t index = 0; index != n; ++index)
-        {
+        for (size_t index = 0; index != n; ++index) {
             sum += count[index];
             sum %= mod;
-            for (auto adj : points[index].adjacent)
-            {
+            for (auto adj : points[index].adjacent) {
                 x[adj] += count[index];
                 x[adj] %= mod;
             }
@@ -49,8 +43,7 @@ int main()
         count = x;
     }
 
-    for (auto n : count)
-    {
+    for (auto n : count) {
         sum += n;
         sum %= mod;
     }

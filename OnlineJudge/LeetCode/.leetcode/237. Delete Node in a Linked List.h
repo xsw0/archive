@@ -6,16 +6,14 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-class Solution
-{
+class Solution {
 public:
-    void deleteNode(ListNode* node)
-    {
-        auto next = node->next;
-        node->val = next->val;
-        node->next = next->next;
-        delete next;
-    }
+  void deleteNode(ListNode *node) {
+    auto next = node->next;
+    node->val = next->val;
+    node->next = next->next;
+    delete next;
+  }
 };
 
 // this is a terrible problem

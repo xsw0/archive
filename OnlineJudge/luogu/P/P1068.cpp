@@ -2,19 +2,16 @@
 
 using namespace std;
 
-struct Person
-{
+struct Person {
     int id;
     int score;
     Person(int id = 0, int score = 0) : id{id}, score{score} {}
-    bool operator<(const Person &rhs) const
-    {
+    bool operator<(const Person &rhs) const {
         return score < rhs.score || score == rhs.score && id > rhs.id;
     }
 };
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -24,8 +21,7 @@ int main()
     m = m * 3 / 2;
     vector<Person> v;
     v.resize(n);
-    for (size_t i = 0; i < n; ++i)
-    {
+    for (size_t i = 0; i < n; ++i) {
         cin >> v[i].id >> v[i].score;
     }
 
@@ -33,11 +29,11 @@ int main()
 
     int limit = v[m - 1].score;
     size_t last = m;
-    while (last != n && v[last].score >= limit) ++last;
+    while (last != n && v[last].score >= limit)
+        ++last;
 
     cout << limit << " " << last << "\n";
-    for (size_t i = 0; i < last; ++i)
-    {
+    for (size_t i = 0; i < last; ++i) {
         cout << v[i].id << " " << v[i].score << "\n";
     }
 

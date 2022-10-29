@@ -2,8 +2,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -14,31 +13,20 @@ int main()
     size_t i = 0, j = n / 2;
     v[i][j] = 1;
     size_t x = 2;
-    while (x <= n * n)
-    {
-        if (i == 0 && j + 1 != n)
-        {
+    while (x <= n * n) {
+        if (i == 0 && j + 1 != n) {
             i = n - 1;
             ++j;
-        }
-        else if (j + 1 == n && i != 0)
-        {
+        } else if (j + 1 == n && i != 0) {
             j = 0;
             --i;
-        }
-        else if (i == 0 && j + 1 == n)
-        {
+        } else if (i == 0 && j + 1 == n) {
             ++i;
-        }
-        else
-        {
-            if (!v[i - 1][j + 1])
-            {
+        } else {
+            if (!v[i - 1][j + 1]) {
                 --i;
                 ++j;
-            }
-            else
-            {
+            } else {
                 ++i;
             }
         }
@@ -46,10 +34,8 @@ int main()
         ++x;
     }
 
-    for (auto &w : v)
-    {
-        for (auto k : w)
-        {
+    for (auto &w : v) {
+        for (auto k : w) {
             cout << k << " ";
         }
         cout << "\n";

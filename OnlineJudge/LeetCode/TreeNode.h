@@ -7,16 +7,14 @@
 
 #include <iostream>
 
-
-class TreeNode
-{
-public:
+class TreeNode {
+  public:
     int val;
-    TreeNode* left;
-    TreeNode* right;
-    explicit TreeNode(int x = 0, TreeNode* left = nullptr, TreeNode* right = nullptr)
+    TreeNode *left;
+    TreeNode *right;
+    explicit TreeNode(int x = 0, TreeNode *left = nullptr,
+                      TreeNode *right = nullptr)
         : val(x), left(left), right(right) {}
 };
 
-
-#endif //LEETCODE_TREENODE_H
+#endif // LEETCODE_TREENODE_H

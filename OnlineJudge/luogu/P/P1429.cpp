@@ -2,44 +2,35 @@
 
 using namespace std;
 
-struct Point
-{
+struct Point {
     int64_t x;
     int64_t y;
     Point(int64_t x, int64_t y) : x{x}, y{y} {}
-    int64_t operator-(const Point &rhs) const
-    {
+    int64_t operator-(const Point &rhs) const {
         return (x - rhs.x) * (x - rhs.x) + (y - rhs.y) * (y - rhs.y);
     }
-    static bool cmp_x(const Point &lhs, const Point &rhs)
-    {
+    static bool cmp_x(const Point &lhs, const Point &rhs) {
         return lhs.x < rhs.x;
     }
-    static bool cmp_y(const Point &lhs, const Point &rhs)
-    {
+    static bool cmp_y(const Point &lhs, const Point &rhs) {
         return lhs.y < rhs.y;
     }
 };
 
-int64_t distance2(vector<Point>::iterator first, vector<Point>::iterator last)
-{
+int64_t distance2(vector<Point>::iterator first, vector<Point>::iterator last) {
     size_t size = distance(first, last);
-    if (size < 4)
-    {
+    if (size < 4) {
         int64_t minimum = numeric_limits<int64_t>::max();
 
-        for (auto it = first; it != last; ++it)
-        {
-            for (auto it2 = next(it); it2 != last; ++it2)
-            {
-                if (*it2 - *it < minimum) minimum = *it2 - *it;
+        for (auto it = first; it != last; ++it) {
+            for (auto it2 = next(it); it2 != last; ++it2) {
+                if (*it2 - *it < minimum)
+                    minimum = *it2 - *it;
             }
         }
         sort(first, last, Point::cmp_y);
         return minimum;
-    }
-    else
-    {
+    } else {
         auto mid = first + size / 2;
         int64_t minimum = min(distance2(first, mid), distance2(mid, last));
         vector<Point> result;
@@ -49,18 +40,12 @@ int64_t distance2(vector<Point>::iterator first, vector<Point>::iterator last)
         int64_t sq = ceil(sqrt(minimum));
         assert(sq * sq >= minimum);
         result.clear();
-        copy_if(first,
-                last,
-                back_inserter(result),
+        copy_if(first, last, back_inserter(result),
                 [&](const Point &p) { return p.x - mid->x <= sq; });
-        for (auto it = result.cbegin(); it != result.cend(); ++it)
-        {
+        for (auto it = result.cbegin(); it != result.cend(); ++it) {
             for (auto it2 = next(it);
-                 it2 != result.cend() && it2->y < it->y + sq;
-                 ++it2)
-            {
-                if (*it2 - *it < minimum)
-                {
+                 it2 != result.cend() && it2->y < it->y + sq; ++it2) {
+                if (*it2 - *it < minimum) {
                     minimum = *it2 - *it;
                 }
             }
@@ -69,8 +54,7 @@ int64_t distance2(vector<Point>::iterator first, vector<Point>::iterator last)
     }
 }
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -79,8 +63,7 @@ int main()
     cin >> n;
 
     vector<Point> v;
-    while (n--)
-    {
+    while (n--) {
         int64_t x, y;
         cin >> x >> y;
         v.emplace_back(x, y);

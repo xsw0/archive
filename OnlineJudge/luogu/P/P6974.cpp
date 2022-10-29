@@ -2,8 +2,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -21,34 +20,24 @@ int main()
     uint64_t num_of_rows = n;
     uint64_t num_of_cols = n;
 
-    while (q--)
-    {
+    while (q--) {
         char c;
         cin >> c;
         size_t m;
         cin >> m;
-        if (c == 'R')
-        {
-            if (rows[m])
-            {
+        if (c == 'R') {
+            if (rows[m]) {
                 cout << "0\n";
-            }
-            else
-            {
+            } else {
                 cout << sum_of_cols + m * num_of_cols << "\n";
                 rows[m] = true;
                 sum_of_rows -= m;
                 --num_of_rows;
             }
-        }
-        else
-        {
-            if (cols[m])
-            {
+        } else {
+            if (cols[m]) {
                 cout << "0\n";
-            }
-            else
-            {
+            } else {
                 cout << sum_of_rows + m * num_of_rows << "\n";
                 cols[m] = true;
                 sum_of_cols -= m;

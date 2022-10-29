@@ -2,14 +2,12 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     double input;
     cin >> input;
     double x = 2;
     size_t i = 1;
-    while (input > x)
-    {
+    while (input > x) {
         input -= x;
         x *= 0.98;
         ++i;

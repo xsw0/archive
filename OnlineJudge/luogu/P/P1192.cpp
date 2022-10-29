@@ -2,16 +2,14 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
 
     unsigned N, K;
     cin >> N >> K;
-    if (K == 1)
-    {
+    if (K == 1) {
         cout << 1 << endl;
         return 0;
     }
@@ -22,8 +20,7 @@ int main()
 
     v[0] = 1;
     unsigned sum = 1;
-    for (size_t i = 1; i <= N; ++i)
-    {
+    for (size_t i = 1; i <= N; ++i) {
         size_t index = i % K;
         size_t next = sum;
 

@@ -3,8 +3,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     // auto is = [](size_t n) {
     //     auto n2 = n * 2;
     //     auto n3 = n * 3;

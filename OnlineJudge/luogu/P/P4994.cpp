@@ -2,8 +2,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -14,8 +13,7 @@ int main()
     size_t prevprev = 0;
     size_t prev = 1;
     size_t index = 2;
-    while (true)
-    {
+    while (true) {
         size_t sum = (prevprev + prev) % M;
         if (sum == 0 && prev == 1)
             break;

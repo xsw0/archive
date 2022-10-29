@@ -2,8 +2,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -11,16 +10,14 @@ int main()
     size_t n;
     cin >> n;
     set<int> s;
-    while (n--)
-    {
+    while (n--) {
         int a;
         cin >> a;
         s.insert(a);
     }
 
     cout << s.size() << "\n";
-    for (auto a : s)
-    {
+    for (auto a : s) {
         cout << a << " ";
     }
     cout << endl;

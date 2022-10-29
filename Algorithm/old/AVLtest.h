@@ -7,4 +7,4 @@
 
 int AVLTest();
 
-#endif //ALGORITHM__AVLTEST_H_
+#endif // ALGORITHM__AVLTEST_H_

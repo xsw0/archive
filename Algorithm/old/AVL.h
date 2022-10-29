@@ -17,8 +17,7 @@ struct AVLImpl;
 
 typedef struct AVLImpl *AVL;
 
-struct tup
-{
+struct tup {
     int height;
     int min;
     int max;
@@ -45,7 +44,7 @@ const struct AVLImpl *AVL_upper_bound(AVL *avl, AVL_VALUE_TYPE value);
 const struct AVLImpl *AVL_Insert(AVL *avl, AVL_VALUE_TYPE value);
 void AVL_Erase(AVL *avl, const struct AVLImpl *impl);
 
-#endif //ALGORITHM__AVL_H_
+#endif // ALGORITHM__AVL_H_
 
 #ifdef __cplusplus
 }

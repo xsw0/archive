@@ -2,8 +2,8 @@
 
 ; Definition for singly-linked list:
 
-; val : integer?
-; next : (or/c list-node? #f)
+;
+val : integer ? ; next : (or/c list-node? #f)
 (struct list-node
   (val next) #:mutable #:transparent)
 
@@ -46,7 +46,7 @@
 (define (list->list-node l)
   (define (constructor l)
     (if (empty? l)
-        #f
+#f
         (list-node (car l)
                    (constructor (cdr l)))))
   (if (empty? l)

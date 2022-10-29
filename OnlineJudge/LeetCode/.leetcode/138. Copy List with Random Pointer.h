@@ -14,32 +14,28 @@ public:
 };
 */
 
-class Solution
-{
+class Solution {
 public:
-    Node* copyRandomList(Node* head)
+  Node *copyRandomList(Node *head) {
+    unordered_map<Node *, Node *> um;
+
     {
-        unordered_map<Node*, Node*> um;
-
-        {
-            Node* p = head;
-            while (p)
-            {
-                um.insert({ p, new Node(p->val) });
-                p = p->next;
-            }
-        }
-
-        {
-            Node* p = head;
-            while (p)
-            {
-                um[p]->next = um[p->next];
-                um[p]->random = um[p->random];
-                p = p->next;
-            }
-        }
-
-        return um[head];
+      Node *p = head;
+      while (p) {
+        um.insert({p, new Node(p->val)});
+        p = p->next;
+      }
     }
+
+    {
+      Node *p = head;
+      while (p) {
+        um[p]->next = um[p->next];
+        um[p]->random = um[p->random];
+        p = p->next;
+      }
+    }
+
+    return um[head];
+  }
 };

@@ -3,8 +3,8 @@
 ; Definition for singly-linked list:
 
 
-; val : integer?
-; next : (or/c list-node? #f)
+;
+val : integer ? ; next : (or/c list-node? #f)
 (struct list-node
   (val next) #:mutable #:transparent)
 
@@ -21,7 +21,7 @@
            [q (quotient sum 10)]
            [r (remainder sum 10)])
       (if (and (= sum 0) (not (or l1 l2)))
-          #f
+#f
           (list-node r
                      (iterator (if l1 (list-node-next l1) #f)
                                (if l2 (list-node-next l2) #f)
@@ -32,7 +32,7 @@
 (define (list->list-node l)
   (define (constructor l)
     (if (empty? l)
-        #f
+#f
         (list-node (car l)
                    (constructor (cdr l)))))
   (if (empty? l)

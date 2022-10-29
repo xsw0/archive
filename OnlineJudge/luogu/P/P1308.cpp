@@ -2,20 +2,17 @@
 
 using namespace std;
 
-bool isSame(const string &lhs, const string &rhs)
-{
+bool isSame(const string &lhs, const string &rhs) {
     if (lhs.size() != rhs.size())
         return false;
-    for (size_t i = 0; i < lhs.size(); ++i)
-    {
+    for (size_t i = 0; i < lhs.size(); ++i) {
         if (tolower(lhs[i]) != tolower(rhs[i]))
             return false;
     }
     return true;
 }
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -30,32 +27,24 @@ int main()
     int start = 0;
 
     char c;
-    while (cin.get(c))
-    {
-        if (c == ' ' || c == '\n')
-        {
-            if (isSame(word, match))
-            {
+    while (cin.get(c)) {
+        if (c == ' ' || c == '\n') {
+            if (isSame(word, match)) {
                 if (first < 0)
                     first = start;
                 ++count;
             }
             word.clear();
             start = index + 1;
-        }
-        else
-        {
+        } else {
             word.push_back(c);
         }
         ++index;
     }
 
-    if (first < 0)
-    {
+    if (first < 0) {
         cout << "-1\n";
-    }
-    else
-    {
+    } else {
         cout << count << " " << first << "\n";
     }
     return 0;

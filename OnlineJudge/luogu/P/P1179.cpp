@@ -4,15 +4,12 @@ using namespace std;
 
 unordered_map<size_t, size_t> um{};
 
-size_t count2(size_t n)
-{
-    if (n < 10)
-    {
+size_t count2(size_t n) {
+    if (n < 10) {
         return n >= 2;
     }
     auto it = um.find(n);
-    if (it == um.end())
-    {
+    if (it == um.end()) {
         it = um.insert({n, 0}).first;
 
         size_t x = 100000;
@@ -20,12 +17,9 @@ size_t count2(size_t n)
             x /= 10;
         auto first = n / x;
 
-        if (first > 2)
-        {
+        if (first > 2) {
             it->second += x;
-        }
-        else if (first == 2)
-        {
+        } else if (first == 2) {
             it->second += n % x + 1;
         }
         it->second += (n / x) * count2(x - 1) + count2(n % x);
@@ -33,8 +27,7 @@ size_t count2(size_t n)
     return it->second;
 }
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);

@@ -2,8 +2,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -13,8 +12,7 @@ int main()
 
     array<int, 201> v{};
 
-    while (n--)
-    {
+    while (n--) {
         int p;
         cin >> p;
         ++v[p];
@@ -25,41 +23,28 @@ int main()
     int l = 5;
     int r = 200;
 
-    while (l <= r)
-    {
-        if (l == r)
-        {
-            if (l + r > w)
-            {
+    while (l <= r) {
+        if (l == r) {
+            if (l + r > w) {
                 tot += v[l];
-            }
-            else
-            {
+            } else {
                 tot += (v[l] + 1) / 2;
             }
             break;
         }
-        if (l + r > w)
-        {
+        if (l + r > w) {
             tot += v[r];
             --r;
-        }
-        else
-        {
-            if (v[l] > v[r])
-            {
+        } else {
+            if (v[l] > v[r]) {
                 v[l] -= v[r];
                 tot += v[r];
                 --r;
-            }
-            else if (v[l] < v[r])
-            {
+            } else if (v[l] < v[r]) {
                 v[r] -= v[l];
                 tot += v[l];
                 ++l;
-            }
-            else
-            {
+            } else {
                 tot += v[l];
                 ++l, --r;
             }

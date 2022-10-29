@@ -2,8 +2,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -13,11 +12,13 @@ int main()
 
     int row = H / (h * 2);
 
-    if (h + row * (h * 2) <= H) ++row;
+    if (h + row * (h * 2) <= H)
+        ++row;
 
     int col = W / (w * 2);
 
-    if (w + col * (w * 2) <= W) ++col;
+    if (w + col * (w * 2) <= W)
+        ++col;
 
     cout << row * col << endl;
 

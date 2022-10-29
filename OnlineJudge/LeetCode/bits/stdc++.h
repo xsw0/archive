@@ -23,8 +23,8 @@
 // <http://www.gnu.org/licenses/>.
 
 /** @file stdc++.h
-*  This is an implementation file for a precompiled header.
-*/
+ *  This is an implementation file for a precompiled header.
+ */
 
 // 17.4.1.2 Headers
 
@@ -120,8 +120,8 @@
 #include <system_error>
 #include <thread>
 #include <tuple>
-#include <typeindex>
 #include <type_traits>
+#include <typeindex>
 #include <unordered_map>
 #include <unordered_set>
 

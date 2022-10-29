@@ -2,15 +2,13 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     size_t n;
     cin >> n;
     {
         int cof;
         cin >> cof;
-        switch (cof)
-        {
+        switch (cof) {
         case 1:
             cout << "x^" << n;
             break;
@@ -23,12 +21,10 @@ int main()
         }
         --n;
     }
-    for (; n > 1; --n)
-    {
+    for (; n > 1; --n) {
         int cof;
         cin >> cof;
-        switch (cof)
-        {
+        switch (cof) {
         case 1:
             cout << "+x^" << n;
             break;
@@ -45,8 +41,7 @@ int main()
     {
         int cof;
         cin >> cof;
-        switch (cof)
-        {
+        switch (cof) {
         case 1:
             cout << "+x";
             break;
@@ -63,8 +58,7 @@ int main()
     {
         int cof;
         cin >> cof;
-        if (cof != 0)
-        {
+        if (cof != 0) {
             cout << showpos << cof;
         }
     }

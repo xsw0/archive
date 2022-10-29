@@ -7,4 +7,4 @@
 
 int sortTest();
 
-#endif //ALGORITHM__SORTTEST_H_
+#endif // ALGORITHM__SORTTEST_H_
