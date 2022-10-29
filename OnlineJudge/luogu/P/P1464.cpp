@@ -6,10 +6,8 @@ array<array<array<int64_t, 21>, 21>, 21> arr{};
 array<array<array<bool, 21>, 21>, 21> have{};
 
 int64_t w(int64_t a, int64_t b, int64_t c) {
-    if (a <= 0 || b <= 0 || c <= 0)
-        return 1;
-    if (a > 20 || b > 20 || c > 20)
-        return w(20, 20, 20);
+    if (a <= 0 || b <= 0 || c <= 0) return 1;
+    if (a > 20 || b > 20 || c > 20) return w(20, 20, 20);
     if (!have[a][b][c]) {
         have[a][b][c] = true;
         if (a < b && b < c)

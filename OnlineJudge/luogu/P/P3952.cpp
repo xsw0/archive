@@ -44,8 +44,7 @@ int main() {
         while (l--) {
             getline(cin, line);
             stringstream ss{line};
-            if (err)
-                continue;
+            if (err) continue;
             ss >> c;
             if (c == 'E') {
                 if (st.empty()) {

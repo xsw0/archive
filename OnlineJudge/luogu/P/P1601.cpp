@@ -28,8 +28,7 @@ int main() {
         carry = sum / 10;
         ++i;
     }
-    if (carry)
-        c.push_back('0' + carry);
+    if (carry) c.push_back('0' + carry);
 
     reverse(c.begin(), c.end());
 

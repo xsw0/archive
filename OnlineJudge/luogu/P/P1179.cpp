@@ -5,16 +5,13 @@ using namespace std;
 unordered_map<size_t, size_t> um{};
 
 size_t count2(size_t n) {
-    if (n < 10) {
-        return n >= 2;
-    }
+    if (n < 10) { return n >= 2; }
     auto it = um.find(n);
     if (it == um.end()) {
         it = um.insert({n, 0}).first;
 
         size_t x = 100000;
-        while (n < x)
-            x /= 10;
+        while (n < x) x /= 10;
         auto first = n / x;
 
         if (first > 2) {

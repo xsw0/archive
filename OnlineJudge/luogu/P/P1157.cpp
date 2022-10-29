@@ -14,9 +14,7 @@ int main() {
         [&](int minimum, int maximum, int count) -> void {
         if (maximum - minimum + 1 >= count) {
             if (count == 0) {
-                for (auto i : v) {
-                    cout << setw(3) << i;
-                }
+                for (auto i : v) { cout << setw(3) << i; }
                 cout << '\n';
             } else {
                 v.push_back(minimum);

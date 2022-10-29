@@ -27,14 +27,10 @@ int main() {
                                                         size_t y) {
                 if (h > mm[x][y]) {
                     mm[x][y] = h;
-                    if (x + 1 < R && v[x + 1][y] > v[x][y])
-                        f(h + 1, x + 1, y);
-                    if (y + 1 < C && v[x][y + 1] > v[x][y])
-                        f(h + 1, x, y + 1);
-                    if (x != 0 && v[x - 1][y] > v[x][y])
-                        f(h + 1, x - 1, y);
-                    if (y != 0 && v[x][y - 1] > v[x][y])
-                        f(h + 1, x, y - 1);
+                    if (x + 1 < R && v[x + 1][y] > v[x][y]) f(h + 1, x + 1, y);
+                    if (y + 1 < C && v[x][y + 1] > v[x][y]) f(h + 1, x, y + 1);
+                    if (x != 0 && v[x - 1][y] > v[x][y]) f(h + 1, x - 1, y);
+                    if (y != 0 && v[x][y - 1] > v[x][y]) f(h + 1, x, y - 1);
                 }
                 result = max(result, mm[x][y]);
             };

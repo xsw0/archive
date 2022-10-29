@@ -21,9 +21,7 @@ int main() {
     size_t m;
     cin >> n >> m;
     vector<PA> v(m);
-    for (size_t i = 0; i != m; ++i) {
-        cin >> v[i].p >> v[i].a;
-    }
+    for (size_t i = 0; i != m; ++i) { cin >> v[i].p >> v[i].a; }
 
     sort(v.begin(), v.end());
 

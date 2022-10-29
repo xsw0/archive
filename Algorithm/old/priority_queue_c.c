@@ -25,10 +25,8 @@ static void pq_swap(priority_queue *pq, size_t i, size_t j) {
 
 static void bubble_down(priority_queue *pq, size_t n) {
     size_t lower = n;
-    if (left(n) < pq->size && pq->arr[left(n)] < pq->arr[n])
-        lower = left(n);
-    if (right(n) < pq->size && pq->arr[right(n)] < pq->arr[n])
-        lower = right(n);
+    if (left(n) < pq->size && pq->arr[left(n)] < pq->arr[n]) lower = left(n);
+    if (right(n) < pq->size && pq->arr[right(n)] < pq->arr[n]) lower = right(n);
     if (lower != n) {
         pq_swap(pq, lower, n);
         bubble_down(pq, lower);
@@ -54,8 +52,6 @@ void make_heap(priority_queue *pq, const PRIORITY_QUEUE_VALUE_TYPE s[],
         realloc(pq->arr, pq->capacity * sizeof(PRIORITY_QUEUE_VALUE_TYPE));
     pq->size = n;
 
-    for (size_t i = 0; i < n; ++i)
-        pq->arr[i] = s[i];
-    while (n-- > 0)
-        bubble_down(pq, n);
+    for (size_t i = 0; i < n; ++i) pq->arr[i] = s[i];
+    while (n-- > 0) bubble_down(pq, n);
 }

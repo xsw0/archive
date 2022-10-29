@@ -8,12 +8,8 @@ using namespace std;
 int main() {
     std::array<char, 20> dig = [] {
         std::array<char, 20> result;
-        for (char i = 0; i < 10; ++i) {
-            result[i] = '0' + i;
-        }
-        for (char i = 0; i < 10; ++i) {
-            result[i + 10] = 'A' + i;
-        }
+        for (char i = 0; i < 10; ++i) { result[i] = '0' + i; }
+        for (char i = 0; i < 10; ++i) { result[i + 10] = 'A' + i; }
         return result;
     }();
 
@@ -56,17 +52,13 @@ int main() {
         }
     }
 
-    while (!digs.front()) {
-        digs.pop_front();
-    }
+    while (!digs.front()) { digs.pop_front(); }
 
     if (digs.empty()) {
         cout << "0=0(base" << base << ")" << endl;
     } else {
         cout << n << "=";
-        for (auto i : digs) {
-            cout << dig[i];
-        }
+        for (auto i : digs) { cout << dig[i]; }
         cout << "(base" << base << ")" << endl;
     }
 

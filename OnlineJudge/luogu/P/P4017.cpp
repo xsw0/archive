@@ -32,9 +32,7 @@ int main() {
         --a, --b;
         non_creator.insert(b);
         creator.erase(b);
-        if (non_creator.find(a) == non_creator.end()) {
-            creator.insert(a);
-        }
+        if (non_creator.find(a) == non_creator.end()) { creator.insert(a); }
         mus[a].insert(b);
     }
 
@@ -45,9 +43,7 @@ int main() {
                 table[n] = 1;
             } else {
                 modNum result = 0;
-                for (auto i : mus[n]) {
-                    result = result + modNum(f(i));
-                }
+                for (auto i : mus[n]) { result = result + modNum(f(i)); }
                 table[n] = result;
             }
         }
@@ -55,9 +51,7 @@ int main() {
     };
 
     modNum result = 0;
-    for (auto i : creator) {
-        result = result + modNum(f(i));
-    }
+    for (auto i : creator) { result = result + modNum(f(i)); }
     cout << result << endl;
 
     return 0;

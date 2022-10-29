@@ -30,46 +30,35 @@ struct tup *isLegal2(struct AVLImpl *root) {
     struct tup *r = NULL;
     int maxHeight = 0;
 
-    if (root->left)
-        l = isLegal2(root->left);
+    if (root->left) l = isLegal2(root->left);
     if (l == NULL) {
         l = malloc(sizeof(struct tup));
         l->height = 0;
     } else {
-        if (l->height > maxHeight)
-            maxHeight = l->height;
-        if (!AVL_COMPARE(l->max, root->value)) {
-            return NULL;
-        }
+        if (l->height > maxHeight) maxHeight = l->height;
+        if (!AVL_COMPARE(l->max, root->value)) { return NULL; }
         t->min = l->min;
     }
 
-    if (root->right)
-        r = isLegal2(root->right);
+    if (root->right) r = isLegal2(root->right);
     if (r == NULL) {
         r = malloc(sizeof(struct tup));
         r->height = 0;
     } else {
-        if (r->height > maxHeight)
-            maxHeight = r->height;
-        if (!AVL_COMPARE(root->value, r->min)) {
-            return NULL;
-        }
+        if (r->height > maxHeight) maxHeight = r->height;
+        if (!AVL_COMPARE(root->value, r->min)) { return NULL; }
         t->max = r->max;
     }
 
     t->height = 1 + maxHeight;
-    if (root->bf != r->height - l->height) {
-        return NULL;
-    }
+    if (root->bf != r->height - l->height) { return NULL; }
     free(l);
     free(r);
     return t;
 }
 
 bool isLegal(struct AVLImpl *root) {
-    if (root == NULL)
-        return true;
+    if (root == NULL) return true;
     return isLegal2(root);
 }
 
@@ -87,10 +76,8 @@ static struct AVLImpl *AVLImpl_Construct(struct AVLImpl *parent,
 
 static void AVLImpl_Destruct(struct AVLImpl *impl) {
     assert(impl);
-    if (impl->left)
-        AVLImpl_Destruct(impl->left);
-    if (impl->right)
-        AVLImpl_Destruct(impl->right);
+    if (impl->left) AVLImpl_Destruct(impl->left);
+    if (impl->right) AVLImpl_Destruct(impl->right);
     free(impl);
 }
 
@@ -179,16 +166,13 @@ static void leftRotate(struct AVLImpl **p_root) {
     root->parent = pivot;
 
     root->right = mid;
-    if (mid)
-        mid->parent = root;
+    if (mid) mid->parent = root;
 
     --root->bf;
-    if (pivot->bf > 0)
-        root->bf -= pivot->bf;
+    if (pivot->bf > 0) root->bf -= pivot->bf;
 
     --pivot->bf;
-    if (root->bf < 0)
-        pivot->bf += root->bf;
+    if (root->bf < 0) pivot->bf += root->bf;
 
     *p_root = pivot;
 }
@@ -217,16 +201,13 @@ static void rightRotate(struct AVLImpl **p_root) {
     root->parent = pivot;
 
     root->left = mid;
-    if (mid)
-        mid->parent = root;
+    if (mid) mid->parent = root;
 
     ++root->bf;
-    if (pivot->bf < 0)
-        root->bf -= pivot->bf;
+    if (pivot->bf < 0) root->bf -= pivot->bf;
 
     ++pivot->bf;
-    if (root->bf > 0)
-        pivot->bf += root->bf;
+    if (root->bf > 0) pivot->bf += root->bf;
 
     *p_root = pivot;
 }
@@ -240,13 +221,11 @@ static struct AVLImpl *AVL_rebalance(struct AVLImpl *impl, int LR, int change) {
 
     if (impl->bf > 1) {
         assert(impl->right);
-        if (impl->right->bf < 0)
-            rightRotate(&impl->right);
+        if (impl->right->bf < 0) rightRotate(&impl->right);
         leftRotate(&impl);
     } else if (impl->bf < -1) {
         assert(impl->left);
-        if (impl->left->bf > 0)
-            leftRotate(&impl->left);
+        if (impl->left->bf > 0) leftRotate(&impl->left);
         rightRotate(&impl);
     }
 
@@ -279,8 +258,7 @@ const struct AVLImpl *AVL_Insert(AVL *avl, AVL_VALUE_TYPE value) {
             } else {
                 impl->left = AVLImpl_Construct(impl, value);
                 AVL_rebalance(impl, -1, 1);
-                while ((*avl)->parent)
-                    *avl = (*avl)->parent;
+                while ((*avl)->parent) *avl = (*avl)->parent;
                 return impl->left;
             }
         } else if (AVL_COMPARE(impl->value, value)) {
@@ -289,8 +267,7 @@ const struct AVLImpl *AVL_Insert(AVL *avl, AVL_VALUE_TYPE value) {
             } else {
                 impl->right = AVLImpl_Construct(impl, value);
                 AVL_rebalance(impl, 1, 1);
-                while ((*avl)->parent)
-                    *avl = (*avl)->parent;
+                while ((*avl)->parent) *avl = (*avl)->parent;
                 return impl->left;
             }
         } else {
@@ -318,8 +295,7 @@ void AVL_Erase(AVL *avl, const struct AVLImpl *impl) {
         if (parent) {
             *parent_child = NULL;
             AVL_rebalance(parent, LR, -1);
-            while ((*avl)->parent)
-                *avl = (*avl)->parent;
+            while ((*avl)->parent) *avl = (*avl)->parent;
         } else {
             *avl = NULL;
         }
@@ -331,8 +307,7 @@ void AVL_Erase(AVL *avl, const struct AVLImpl *impl) {
             *parent_child = pivot;
             pivot->parent = parent;
             AVL_rebalance(parent, LR, -1);
-            while ((*avl)->parent)
-                *avl = (*avl)->parent;
+            while ((*avl)->parent) *avl = (*avl)->parent;
         } else {
             *avl = pivot;
             pivot->parent = NULL;
@@ -343,14 +318,12 @@ void AVL_Erase(AVL *avl, const struct AVLImpl *impl) {
     } else {
         if (non_const_impl->bf < 0) {
             struct AVLImpl *predecessor = non_const_impl->left;
-            while (predecessor->right)
-                predecessor = predecessor->right;
+            while (predecessor->right) predecessor = predecessor->right;
             non_const_impl->value = predecessor->value;
             AVL_Erase(avl, predecessor);
         } else {
             struct AVLImpl *successor = non_const_impl->right;
-            while (successor->left)
-                successor = successor->left;
+            while (successor->left) successor = successor->left;
             non_const_impl->value = successor->value;
             AVL_Erase(avl, successor);
         }
@@ -365,7 +338,6 @@ AVL *AVL_Construct() {
 
 void AVL_Destruct(AVL *avl) {
     assert(avl);
-    if (*avl)
-        AVLImpl_Destruct(*avl);
+    if (*avl) AVLImpl_Destruct(*avl);
     free(avl);
 }

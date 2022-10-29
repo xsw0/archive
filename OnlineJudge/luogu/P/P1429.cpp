@@ -24,8 +24,7 @@ int64_t distance2(vector<Point>::iterator first, vector<Point>::iterator last) {
 
         for (auto it = first; it != last; ++it) {
             for (auto it2 = next(it); it2 != last; ++it2) {
-                if (*it2 - *it < minimum)
-                    minimum = *it2 - *it;
+                if (*it2 - *it < minimum) minimum = *it2 - *it;
             }
         }
         sort(first, last, Point::cmp_y);
@@ -45,9 +44,7 @@ int64_t distance2(vector<Point>::iterator first, vector<Point>::iterator last) {
         for (auto it = result.cbegin(); it != result.cend(); ++it) {
             for (auto it2 = next(it);
                  it2 != result.cend() && it2->y < it->y + sq; ++it2) {
-                if (*it2 - *it < minimum) {
-                    minimum = *it2 - *it;
-                }
+                if (*it2 - *it < minimum) { minimum = *it2 - *it; }
             }
         }
         return minimum;

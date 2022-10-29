@@ -24,12 +24,10 @@ int main() {
         neg = true;
     } else if (a.size() == b.size()) {
         size_t i = 0;
-        while (i != a.size() && a[i] == b[i])
-            ++i;
+        while (i != a.size() && a[i] == b[i]) ++i;
         a = a.substr(i, a.size() - i);
         b = b.substr(i, b.size() - i);
-        if (!a.empty() && a.front() < b.front())
-            neg = true;
+        if (!a.empty() && a.front() < b.front()) neg = true;
     }
 
     auto &minimum = neg ? a : b;
@@ -38,8 +36,7 @@ int main() {
     if (maximum.empty()) {
         cout << "0" << endl;
     } else {
-        if (neg)
-            cout << "-";
+        if (neg) cout << "-";
         reverse(maximum.begin(), maximum.end());
         reverse(minimum.begin(), minimum.end());
         cout << sub(maximum, minimum) << endl;

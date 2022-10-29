@@ -4,12 +4,9 @@ using namespace std;
 
 string f(unsigned n) {
     switch (n) {
-    case 0:
-        return "0";
-    case 1:
-        return "2(0)";
-    case 2:
-        return "2";
+    case 0: return "0";
+    case 1: return "2(0)";
+    case 2: return "2";
     default: {
         string result;
         size_t i = 0;

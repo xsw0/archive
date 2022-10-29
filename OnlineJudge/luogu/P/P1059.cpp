@@ -17,9 +17,7 @@ int main() {
     }
 
     cout << s.size() << "\n";
-    for (auto a : s) {
-        cout << a << " ";
-    }
+    for (auto a : s) { cout << a << " "; }
     cout << endl;
 
     return 0;

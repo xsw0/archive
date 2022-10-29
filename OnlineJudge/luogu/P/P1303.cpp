@@ -3,10 +3,8 @@
 using namespace std;
 
 void add(string &s, size_t index, unsigned n) {
-    if (n == 0)
-        return;
-    if (s.size() <= index)
-        s.resize(index + 1, '0');
+    if (n == 0) return;
+    if (s.size() <= index) s.resize(index + 1, '0');
     unsigned sum = (s[index] - '0') + n;
     s[index] = '0' + sum % 10;
     add(s, index + 1, sum / 10);

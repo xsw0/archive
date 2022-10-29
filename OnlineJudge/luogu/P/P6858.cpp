@@ -14,9 +14,7 @@ class Integer {
         Integer result(1);
         Integer x = *this;
         while (pow) {
-            if (pow % 2 != 0) {
-                result = result * x;
-            }
+            if (pow % 2 != 0) { result = result * x; }
             x = x * x;
             pow /= 2;
         }

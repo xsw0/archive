@@ -40,9 +40,7 @@ int main() {
     cout << win11 << ":" << lost11 << "\n";
     record21.emplace_back(win21, lost21);
     cout << "\n";
-    for (auto &p : record21) {
-        cout << p.first << ":" << p.second << "\n";
-    }
+    for (auto &p : record21) { cout << p.first << ":" << p.second << "\n"; }
 
     return 0;
 }

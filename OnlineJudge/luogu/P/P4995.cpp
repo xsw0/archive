@@ -25,13 +25,11 @@ int main() {
     uint64_t l = 0;
     uint64_t r = v.size();
     while (true) {
-        if (l >= r)
-            break;
+        if (l >= r) break;
         --r;
         tot += (v[r] - h) * (v[r] - h);
         h = v[r];
-        if (l >= r)
-            break;
+        if (l >= r) break;
         tot += (h - v[l]) * (h - v[l]);
         h = v[l];
         ++l;

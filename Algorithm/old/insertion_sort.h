@@ -16,9 +16,7 @@ void insertion_sort_impl(RandomAccessIterator first, RandomAccessIterator last,
             while (l != first) {
                 r = l;
                 --l;
-                if (comp(*r, *l)) {
-                    swap(*l, *r);
-                }
+                if (comp(*r, *l)) { swap(*l, *r); }
             }
         }
     }

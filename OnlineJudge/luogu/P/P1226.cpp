@@ -21,10 +21,8 @@ int main() {
 
     cin >> a >> b >> p;
     uint64_t result;
-    if (a < 2)
-        result = a;
-    else
-        result = fp(a % p, b);
+    if (a < 2) result = a;
+    else result = fp(a % p, b);
     cout << a << "^" << b << " mod " << p << "=" << result << endl;
 
     return 0;

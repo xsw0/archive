@@ -19,14 +19,11 @@ template <> struct std::hash<Point> {
 
 bool find_points(vector<Point> v, size_t n, size_t m) {
     vector<vector<bool>> has(n, vector<bool>(m));
-    for (auto &p : v) {
-        has[p.x][p.y] = true;
-    }
+    for (auto &p : v) { has[p.x][p.y] = true; }
     vector<Point> p;
     for (size_t i = 0; i != n; ++i) {
         for (size_t j = 0; j != m; ++j) {
-            if (!has[i][j])
-                p.emplace_back(i, j);
+            if (!has[i][j]) p.emplace_back(i, j);
         }
     }
     assert(p.size() == 2);
@@ -61,28 +58,20 @@ int main() {
         switch (static_cast<uint64_t>(n) * static_cast<uint64_t>(m) -
                 points.size()) {
         case 0:
-        case 1:
-            cout << "-1\n";
-            break;
-        case 2:
-            cout << (find_points(points, n, m) ? "0\n" : "-1\n");
-            break;
+        case 1: cout << "-1\n"; break;
+        case 2: cout << (find_points(points, n, m) ? "0\n" : "-1\n"); break;
         default:
             if (min(n, m) == 1) {
                 vector<bool> b(max(n, m));
                 if (n == 1) {
-                    for (auto &p : points)
-                        b[p.y] = true;
+                    for (auto &p : points) b[p.y] = true;
                 } else {
-                    for (auto &p : points)
-                        b[p.x] = true;
+                    for (auto &p : points) b[p.x] = true;
                 }
                 auto l = find(b.cbegin(), b.cend(), false);
                 auto r = find(b.crbegin(), b.crend(), false).base();
-                if (r - l == max(n, m) - points.size())
-                    cout << "1\n";
-                else
-                    cout << "0\n";
+                if (r - l == max(n, m) - points.size()) cout << "1\n";
+                else cout << "0\n";
             } else {
                 unordered_set<Point> us{points.cbegin(), points.cend()};
                 bool zero = false;
@@ -97,18 +86,12 @@ int main() {
                     auto count = [&](size_t i, size_t j) {
                         if (has(i, j)) {
                             size_t result = 0;
-                            if (has(i, j - 1))
-                                ++result;
-                            if (has(i, j + 1))
-                                ++result;
-                            if (has(i - 1, j))
-                                ++result;
-                            if (has(i + 1, j))
-                                ++result;
-                            if (result == 0)
-                                zero = true;
-                            if (result == 1)
-                                one = true;
+                            if (has(i, j - 1)) ++result;
+                            if (has(i, j + 1)) ++result;
+                            if (has(i - 1, j)) ++result;
+                            if (has(i + 1, j)) ++result;
+                            if (result == 0) zero = true;
+                            if (result == 1) one = true;
                         }
                     };
                     count(p.x, p.y - 1);
@@ -116,12 +99,9 @@ int main() {
                     count(p.x - 1, p.y);
                     count(p.x + 1, p.y);
                 }
-                if (zero)
-                    cout << "0\n";
-                else if (one || min(n, m) == 1)
-                    cout << "1\n";
-                else
-                    cout << "2\n";
+                if (zero) cout << "0\n";
+                else if (one || min(n, m) == 1) cout << "1\n";
+                else cout << "2\n";
             }
             break;
         }

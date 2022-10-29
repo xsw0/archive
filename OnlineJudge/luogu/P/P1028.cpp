@@ -9,9 +9,7 @@ int main() {
     function<int(int)> compute = [&](int n) -> int {
         if (um.find(n) == um.end()) {
             int sum = 1;
-            for (int i = 1; i <= n / 2; ++i) {
-                sum += compute(i);
-            }
+            for (int i = 1; i <= n / 2; ++i) { sum += compute(i); }
             um[n] = sum;
             return sum;
         } else {

@@ -35,9 +35,7 @@ int main() {
     }
 
     for (auto &w : v) {
-        for (auto k : w) {
-            cout << k << " ";
-        }
+        for (auto k : w) { cout << k << " "; }
         cout << "\n";
     }
 

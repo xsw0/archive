@@ -3,11 +3,9 @@
 using namespace std;
 
 bool isSame(const string &lhs, const string &rhs) {
-    if (lhs.size() != rhs.size())
-        return false;
+    if (lhs.size() != rhs.size()) return false;
     for (size_t i = 0; i < lhs.size(); ++i) {
-        if (tolower(lhs[i]) != tolower(rhs[i]))
-            return false;
+        if (tolower(lhs[i]) != tolower(rhs[i])) return false;
     }
     return true;
 }
@@ -30,8 +28,7 @@ int main() {
     while (cin.get(c)) {
         if (c == ' ' || c == '\n') {
             if (isSame(word, match)) {
-                if (first < 0)
-                    first = start;
+                if (first < 0) first = start;
                 ++count;
             }
             word.clear();

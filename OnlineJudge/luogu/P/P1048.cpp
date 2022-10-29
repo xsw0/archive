@@ -17,9 +17,7 @@ int main() {
     cin >> T >> M;
     v.resize(M);
     maximum.resize(T + 1);
-    for (size_t i = 0; i < M; ++i) {
-        cin >> v[i].weight >> v[i].value;
-    }
+    for (size_t i = 0; i < M; ++i) { cin >> v[i].weight >> v[i].value; }
 
     for (size_t i = 0; i < M; ++i) {
         if (v[i].weight <= T) {

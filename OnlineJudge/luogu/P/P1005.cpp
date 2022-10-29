@@ -31,8 +31,7 @@ int main() {
         map<pair<size_t, size_t>, unsigned __int128> table{};
         function<unsigned __int128(size_t, size_t)> count =
             [&](size_t first, size_t last) -> unsigned __int128 {
-            if (first == last)
-                return 0;
+            if (first == last) return 0;
             auto it = table.find({first, last});
             if (table.find({first, last}) == table.end()) {
                 it = table.insert({{first, last}, 0}).first;

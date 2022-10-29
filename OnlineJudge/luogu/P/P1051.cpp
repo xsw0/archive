@@ -19,16 +19,11 @@ int main() {
         cin >> name >> final_score >> eval_score >> is_official >> is_remote >>
             paper_num;
         int bonus = 0;
-        if (final_score > 80 && paper_num > 0)
-            bonus += 8000;
-        if (final_score > 85 && eval_score > 80)
-            bonus += 4000;
-        if (final_score > 90)
-            bonus += 2000;
-        if (final_score > 85 && is_remote == 'Y')
-            bonus += 1000;
-        if (eval_score > 80 && is_official == 'Y')
-            bonus += 850;
+        if (final_score > 80 && paper_num > 0) bonus += 8000;
+        if (final_score > 85 && eval_score > 80) bonus += 4000;
+        if (final_score > 90) bonus += 2000;
+        if (final_score > 85 && is_remote == 'Y') bonus += 1000;
+        if (eval_score > 80 && is_official == 'Y') bonus += 850;
         if (bonus > maximum) {
             maximum = bonus;
             top_name = name;

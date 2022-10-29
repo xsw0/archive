@@ -37,9 +37,7 @@ int main() {
             n += 0.99;
         }
     }
-    for (auto r : root) {
-        cout << fixed << setprecision(2) << r << " ";
-    }
+    for (auto r : root) { cout << fixed << setprecision(2) << r << " "; }
     cout << endl;
 
     return 0;

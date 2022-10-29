@@ -23,15 +23,11 @@ int main() {
         unsigned count = 0;
         unsigned last = 0;
         for (size_t i = 0; i != v.size(); ++i) {
-            if (v[i] - last < mid)
-                ++count;
-            else
-                last = v[i];
+            if (v[i] - last < mid) ++count;
+            else last = v[i];
         }
-        if (count > m)
-            right = mid;
-        else
-            left = mid;
+        if (count > m) right = mid;
+        else left = mid;
     }
     cout << left << endl;
 

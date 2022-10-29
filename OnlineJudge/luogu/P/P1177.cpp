@@ -3,8 +3,7 @@
 using namespace std;
 
 template <typename It> void quicksort(It first, It last) {
-    if (first == last)
-        return;
+    if (first == last) return;
     auto pivot = prev(last);
     auto l = first;
     auto r = pivot;
@@ -36,9 +35,7 @@ int main() {
         v.emplace_back(a);
     }
     quicksort(v.begin(), v.end());
-    for (auto a : v) {
-        cout << a << " ";
-    }
+    for (auto a : v) { cout << a << " "; }
     cout << endl;
 
     return 0;

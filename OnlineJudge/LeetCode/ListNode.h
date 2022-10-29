@@ -24,8 +24,7 @@ class ListNode {
 inline std::ostream &operator<<(std::ostream &os, ListNode *ld) {
     assert(ld);
     os << ld->val;
-    if (ld->next)
-        os << ' ' << ld->next;
+    if (ld->next) os << ' ' << ld->next;
     return os;
 }
 

@@ -18,12 +18,8 @@ int main() {
             l.push_back(n % 10);
             n /= 10;
         }
-        while (l.front() == 0) {
-            l.pop_front();
-        }
-        for (auto i : l) {
-            cout << i;
-        }
+        while (l.front() == 0) { l.pop_front(); }
+        for (auto i : l) { cout << i; }
         cout << endl;
     }
 

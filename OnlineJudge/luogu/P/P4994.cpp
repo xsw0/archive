@@ -15,8 +15,7 @@ int main() {
     size_t index = 2;
     while (true) {
         size_t sum = (prevprev + prev) % M;
-        if (sum == 0 && prev == 1)
-            break;
+        if (sum == 0 && prev == 1) break;
         prevprev = prev;
         prev = sum;
         ++index;

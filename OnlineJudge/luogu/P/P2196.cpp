@@ -17,9 +17,7 @@ int main() {
     vector<size_t> s(v);
     vector<vector<size_t>> way;
     way.reserve(N);
-    for (size_t i = 0; i < N; i++) {
-        way.push_back({i});
-    }
+    for (size_t i = 0; i < N; i++) { way.push_back({i}); }
 
     for (size_t i = 0; i < N - 1; ++i) {
         for (size_t j = i + 1; j < N; ++j) {
@@ -35,9 +33,7 @@ int main() {
         }
     }
     size_t index = max_element(s.cbegin(), s.cend()) - s.cbegin();
-    for (auto i : way[index]) {
-        cout << i + 1 << ' ';
-    }
+    for (auto i : way[index]) { cout << i + 1 << ' '; }
     cout << endl;
     cout << s[index] << endl;
 

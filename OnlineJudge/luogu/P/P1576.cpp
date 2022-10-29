@@ -37,9 +37,7 @@ int main() {
 
     priority_queue<Edge, std::vector<Edge>, decltype(cmp)> edges(cmp);
 
-    for (auto &edge : graph[a]) {
-        edges.push(edge);
-    }
+    for (auto &edge : graph[a]) { edges.push(edge); }
 
     vector<double> values(n);
     values[a] = 1;

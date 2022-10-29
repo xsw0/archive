@@ -17,9 +17,7 @@ int main() {
     cin >> n >> m;
     vector<Person> people;
     people.resize(n);
-    for (size_t i = 0; i < n; i++) {
-        cin >> people[i].a >> people[i].name;
-    }
+    for (size_t i = 0; i < n; i++) { cin >> people[i].a >> people[i].name; }
     size_t index = 0;
     while (m--) {
         bool a;

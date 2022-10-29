@@ -22,8 +22,7 @@ class priority_queue {
         return dis < heap.size() ? heap.begin() + dis : heap.end();
     };
     typename Container::iterator parent(typename Container::iterator it) {
-        if (it == heap.begin())
-            return heap.end();
+        if (it == heap.begin()) return heap.end();
         auto dis = std::distance(heap.begin(), prev(it)) / 2;
         return heap.begin() + dis;
     };
@@ -41,10 +40,8 @@ class priority_queue {
         auto minIt = it;
         auto l = left(it);
         auto r = right(it);
-        if (l != heap.end() && compare(*l, *minIt))
-            minIt = l;
-        if (r != heap.end() && compare(*r, *minIt))
-            minIt = r;
+        if (l != heap.end() && compare(*l, *minIt)) minIt = l;
+        if (r != heap.end() && compare(*r, *minIt)) minIt = r;
         if (minIt != it) {
             using std::swap;
             swap(*it, *minIt);
@@ -81,9 +78,7 @@ class priority_queue {
         auto result = heap.front();
         heap.front() = heap.back();
         heap.pop_back();
-        if (!heap.empty()) {
-            bubble_down(heap.begin());
-        }
+        if (!heap.empty()) { bubble_down(heap.begin()); }
         return result;
     }
 };

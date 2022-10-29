@@ -61,8 +61,7 @@ void print(const struct AVLImpl *avl, int space = 128, int wid = 4) {
             } else {
                 w.push(nullptr);
                 w.push(nullptr);
-                if (wid > 0)
-                    std::cout << std::string(wid, ' ');
+                if (wid > 0) std::cout << std::string(wid, ' ');
             }
             if (space - wid / 2 > 0)
                 std::cout << std::string(space - wid / 2, ' ');
@@ -98,15 +97,12 @@ int AVLTest() {
     AVL *avl = AVL_Construct();
 
     auto random_element = [&]() -> std::set<int>::iterator {
-        if (standard.empty()) {
-            return standard.end();
-        }
+        if (standard.empty()) { return standard.end(); }
         std::uniform_int_distribution<size_t> random_adv{0,
                                                          standard.size() - 1};
         auto n = random_adv(engine);
         auto it = standard.begin();
-        if (n != 0)
-            std::advance(it, n);
+        if (n != 0) std::advance(it, n);
         return it;
     };
 
@@ -123,9 +119,7 @@ int AVLTest() {
         if (!standard.empty()) {
             if (n == 0) {
                 n = *random_element();
-                if (standard.find(n) == standard.end()) {
-                    return empty();
-                }
+                if (standard.find(n) == standard.end()) { return empty(); }
             }
 
             printAVL(avl);
@@ -144,8 +138,7 @@ int AVLTest() {
                 std::cout << "\n";
                 return false;
             }
-            if (impl == nullptr || AVL_getValue(impl) == *it)
-                return true;
+            if (impl == nullptr || AVL_getValue(impl) == *it) return true;
             std::cout << "ERROR:\n";
             std::cout << "Expect:\t" + std::to_string(*it) + "\n";
             std::cout << "Actual:\t" + std::to_string(AVL_getValue(impl)) +
@@ -161,9 +154,7 @@ int AVLTest() {
         if (!standard.empty()) {
             if (n == 0) {
                 n = *random_element();
-                if (standard.find(n) == standard.end()) {
-                    return empty();
-                }
+                if (standard.find(n) == standard.end()) { return empty(); }
             }
 
             printAVL(avl);
@@ -182,8 +173,7 @@ int AVLTest() {
                 std::cout << "\n";
                 return false;
             }
-            if (impl == nullptr || AVL_getValue(impl) == *it)
-                return true;
+            if (impl == nullptr || AVL_getValue(impl) == *it) return true;
             std::cout << "ERROR:\n";
             std::cout << "Expect:\t" + std::to_string(*it) + "\n";
             std::cout << "Actual:\t" + std::to_string(AVL_getValue(impl)) +
@@ -196,8 +186,7 @@ int AVLTest() {
     };
 
     auto insert = [&](int r = 0) -> bool {
-        if (r == 0)
-            r = random_int(engine);
+        if (r == 0) r = random_int(engine);
         if (standard.find(r) == standard.end()) {
             printAVL(avl);
             std::cout << "\n";
@@ -213,14 +202,12 @@ int AVLTest() {
     };
 
     auto erase = [&](int r = 0) -> bool {
-        if (standard.empty())
-            return empty();
+        if (standard.empty()) return empty();
 
         if (r == 0) {
             r = *random_element();
             auto it = standard.find(r);
-            if (it == standard.end())
-                return empty();
+            if (it == standard.end()) return empty();
         }
 
         printAVL(avl);
@@ -233,8 +220,7 @@ int AVLTest() {
 
         standard.erase(standard.find(r));
         auto impl = AVL_lower_bound(avl, r);
-        if (AVL_getValue(impl) != r)
-            return false;
+        if (AVL_getValue(impl) != r) return false;
         AVL_Erase(avl, impl);
         return true;
     };
@@ -279,9 +265,7 @@ int AVLTest() {
             auto result = actions[random_action(engine)]();
             // auto s = standard.size();
             print(*avl);
-            if (!isLegal(*avl) || !result) {
-                return false;
-            }
+            if (!isLegal(*avl) || !result) { return false; }
         }
         return true;
     };

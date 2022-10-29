@@ -15,12 +15,9 @@ int main() {
         cin >> x1 >> y1 >> x2 >> y2;
         --x1, --y1;
         ++v[x1][y1];
-        if (x2 != n)
-            --v[x2][y1];
-        if (y2 != n)
-            --v[x1][y2];
-        if (x2 != n && y2 != n)
-            ++v[x2][y2];
+        if (x2 != n) --v[x2][y1];
+        if (y2 != n) --v[x1][y2];
+        if (x2 != n && y2 != n) ++v[x2][y2];
     }
 
     vector<int> cols(n);

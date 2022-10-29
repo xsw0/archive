@@ -8,8 +8,7 @@ size_t Sort::compare_count = 0;
 void Sort::quicksort(int *first, int *last) {
     static std::default_random_engine re{std::random_device{}()};
 
-    if (first == last)
-        return;
+    if (first == last) return;
 
     size_t size = std::distance(first, last);
     auto pivot = first;
@@ -31,8 +30,7 @@ void Sort::quicksort(int *first, int *last) {
 }
 
 void Sort::straight_insertion_sort(int *first, int *last) {
-    if (first == last)
-        return;
+    if (first == last) return;
     for (auto pivot = std::next(first); pivot != last; ++pivot) {
         int value = assign(*pivot);
         auto it = pivot;
@@ -44,8 +42,7 @@ void Sort::straight_insertion_sort(int *first, int *last) {
 }
 
 void Sort::binary_insertion_sort(int *first, int *last) {
-    if (first == last)
-        return;
+    if (first == last) return;
     for (auto pivot = std::next(first); pivot != last; ++pivot) {
         int value = assign(*pivot);
 
@@ -69,8 +66,7 @@ void Sort::binary_insertion_sort(int *first, int *last) {
 }
 
 void Sort::two_way_insertion_sort(int *first, int *last) {
-    if (first == last)
-        return;
+    if (first == last) return;
 
     size_t size = std::distance(first, last);
     int *two_way = new int[size];
@@ -139,9 +135,7 @@ void Sort::bubble_sort(int *first, int *last) {
     while (first != last) {
         --last;
         for (auto it = first; it != last; ++it) {
-            if (compare(*std::next(it), *it)) {
-                swap(*it, *std::next(it));
-            }
+            if (compare(*std::next(it), *it)) { swap(*it, *std::next(it)); }
         }
     }
 }
@@ -150,9 +144,7 @@ void Sort::selection_sort(int *first, int *last) {
     while (first != last) {
         auto minimum = first;
         for (auto it = std::next(first); it != last; ++it) {
-            if (compare(*it, *minimum)) {
-                minimum = it;
-            }
+            if (compare(*it, *minimum)) { minimum = it; }
         }
         swap(*first, *minimum);
         ++first;
@@ -178,12 +170,10 @@ static void bubble_down(int *first, size_t size, size_t index) {
 }
 
 void Sort::heapsort(int *first, int *last) {
-    if (first == last)
-        return;
+    if (first == last) return;
     size_t size = std::distance(first, last);
     size_t index = size / 2;
-    while (index-- != 0)
-        bubble_down(first, size, index);
+    while (index-- != 0) bubble_down(first, size, index);
 
     while (first != --last) {
         swap(*first, *last);
@@ -194,8 +184,7 @@ void Sort::heapsort(int *first, int *last) {
 
 void Sort::merge_sort(int *first, int *last) {
     size_t size = std::distance(first, last);
-    if (size < 2)
-        return;
+    if (size < 2) return;
     auto mid = first + size / 2;
     merge_sort(first, mid);
     merge_sort(mid, last);
@@ -227,9 +216,7 @@ void Sort::merge_sort(int *first, int *last) {
             }
         }
     }
-    for (size_t i = 0; first != last; ++i, ++first) {
-        *first = merge[i];
-    }
+    for (size_t i = 0; first != last; ++i, ++first) { *first = merge[i]; }
     delete[] merge;
 }
 
@@ -248,8 +235,7 @@ void Sort::radix_sort(int *first, int *last) {
         size_t l = 0;
         size_t r = 0;
         for (auto it = first; it != last; ++it) {
-            if (!radix(*it, i))
-                ++r;
+            if (!radix(*it, i)) ++r;
         }
         for (auto it = first; it != last; ++it) {
             if (radix(*it, i)) {
@@ -258,9 +244,7 @@ void Sort::radix_sort(int *first, int *last) {
                 bucket[l++] = assign(*it);
             }
         }
-        for (size_t j = 0; j != size; ++j) {
-            first[j] = assign(bucket[j]);
-        }
+        for (size_t j = 0; j != size; ++j) { first[j] = assign(bucket[j]); }
     }
     delete[] bucket;
 }

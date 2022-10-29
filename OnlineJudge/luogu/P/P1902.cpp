@@ -14,8 +14,7 @@ int main() {
     for (size_t i = 0; i != n; ++i) {
         for (size_t j = 0; j != m; ++j) {
             cin >> v[i][j];
-            if (v[i][j] > maximum)
-                maximum = v[i][j];
+            if (v[i][j] > maximum) maximum = v[i][j];
         }
     }
 

@@ -12,10 +12,8 @@ int main() {
 
     vector<int> A(n);
     vector<int> B(n);
-    for (size_t i = 0; i != n; ++i)
-        cin >> A[i];
-    for (size_t i = 0; i != n; ++i)
-        cin >> B[i];
+    for (size_t i = 0; i != n; ++i) cin >> A[i];
+    for (size_t i = 0; i != n; ++i) cin >> B[i];
     sort(A.begin(), A.end());
     sort(B.begin(), B.end());
 
@@ -23,15 +21,11 @@ int main() {
 
     auto b = B.cbegin();
     for (auto a = A.cbegin(); a != A.cend(); ++a) {
-        while (b != B.cend() && *b < *a)
-            ++b;
+        while (b != B.cend() && *b < *a) ++b;
         int minimum = numeric_limits<int>::max();
-        if (b != B.cbegin() && *a - *prev(b) < minimum)
-            minimum = *a - *prev(b);
-        if (b != B.cend() && *b - *a < minimum)
-            minimum = *b - *a;
-        if (minimum > maximum)
-            maximum = minimum;
+        if (b != B.cbegin() && *a - *prev(b) < minimum) minimum = *a - *prev(b);
+        if (b != B.cend() && *b - *a < minimum) minimum = *b - *a;
+        if (minimum > maximum) maximum = minimum;
     }
     cout << maximum << endl;
 

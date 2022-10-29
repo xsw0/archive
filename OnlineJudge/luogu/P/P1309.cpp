@@ -18,12 +18,9 @@ int main() {
     cin >> n >> r >> q;
     vector<Person> v(n * 2);
     vector<size_t> order(n * 2);
-    for (size_t i = 0; i != n * 2; ++i)
-        order[i] = i;
-    for (size_t i = 0; i != n * 2; ++i)
-        cin >> v[i].score;
-    for (size_t i = 0; i != n * 2; ++i)
-        cin >> v[i].weight;
+    for (size_t i = 0; i != n * 2; ++i) order[i] = i;
+    for (size_t i = 0; i != n * 2; ++i) cin >> v[i].score;
+    for (size_t i = 0; i != n * 2; ++i) cin >> v[i].weight;
     auto cmp = [&](size_t lhs, size_t rhs) {
         return v[lhs] < v[rhs] || v[lhs] == v[rhs] && lhs < rhs;
     };

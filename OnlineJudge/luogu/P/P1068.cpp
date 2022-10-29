@@ -21,16 +21,13 @@ int main() {
     m = m * 3 / 2;
     vector<Person> v;
     v.resize(n);
-    for (size_t i = 0; i < n; ++i) {
-        cin >> v[i].id >> v[i].score;
-    }
+    for (size_t i = 0; i < n; ++i) { cin >> v[i].id >> v[i].score; }
 
     sort(v.rbegin(), v.rend());
 
     int limit = v[m - 1].score;
     size_t last = m;
-    while (last != n && v[last].score >= limit)
-        ++last;
+    while (last != n && v[last].score >= limit) ++last;
 
     cout << limit << " " << last << "\n";
     for (size_t i = 0; i < last; ++i) {

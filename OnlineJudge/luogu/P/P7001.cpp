@@ -6,9 +6,7 @@ bool check(const string &s1, const string s2) {
     assert(s1.size() == 9);
     assert(s2.size() == 9);
     for (size_t i = 0; i != 9; ++i) {
-        if (s1[i] != '*' && s1[i] != s2[i]) {
-            return false;
-        }
+        if (s1[i] != '*' && s1[i] != s2[i]) { return false; }
     }
     return true;
 }
@@ -29,14 +27,10 @@ int main() {
         string s2;
         s2.reserve(9);
         cin >> s2;
-        if (check(s, s2)) {
-            v.push_back(s2);
-        }
+        if (check(s, s2)) { v.push_back(s2); }
     }
     cout << v.size() << "\n";
-    for (auto &s : v) {
-        cout << s << "\n";
-    }
+    for (auto &s : v) { cout << s << "\n"; }
 
     return 0;
 }

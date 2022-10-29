@@ -12,8 +12,7 @@ int main() {
     for (size_t i = 0; i < 11; ++i) {
         switch (i) {
         case 1:
-        case 5:
-            break;
+        case 5: break;
         default:
             check += j * (ISBN[i] - '0');
             ++j;
